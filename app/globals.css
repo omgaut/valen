@@ -1,0 +1,137 @@
+:root {
+  --bg: radial-gradient(circle at 20% 20%, #ffe3ec, #ffeef6 30%, #f7d1ff 60%, #ffffff 90%);
+  --accent: #ff4f86;
+  --accent-2: #5b2cff;
+  --text: #1f102b;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 16px 28px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 4px;
+}
+
+.main-shell {
+  width: min(900px, 92vw);
+  height: 80vh;
+  padding: 32px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 25px 70px rgba(33, 0, 68, 0.14);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sparkles::before,
+.sparkles::after {
+  content: '';
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(255,79,134,0.18), transparent 60%);
+  filter: blur(20px);
+  z-index: 0;
+}
+
+.sparkles::before { top: -40px; left: -40px; }
+.sparkles::after { bottom: -40px; right: -20px; background: radial-gradient(circle, rgba(91,44,255,0.18), transparent 60%); }
+
+.headline {
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 800;
+  text-align: center;
+  margin: 0;
+  z-index: 1;
+}
+
+.subtitle {
+  text-align: center;
+  margin: 0;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.buttons-area {
+  position: relative;
+  border: 2px dashed rgba(31,16,43,0.12);
+  border-radius: 24px;
+  background: rgba(255,255,255,0.65);
+  overflow: hidden;
+  height: 320px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.tagline {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(255,79,134,0.1);
+  color: var(--accent);
+  font-weight: 700;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.accepted {
+  max-width: 740px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.centered {
+  display: grid;
+  place-items: center;
+  min-height: 60vh;
+}
+
+@media (max-width: 640px) {
+  .main-shell { padding: 24px; height: 82vh; }
+  button { width: auto; }
+}
